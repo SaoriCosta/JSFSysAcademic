@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1> <h:outputText value="#{alunoBean.getAluno().getNome()}"></h:outputText> </h1>
+
+
+<h:outputLink target="about:blank" value="alunos.jsf">Alunos</h:outputLink>
+<h:outputLink target="about:blank" value="professor.jsf">Professor</h:outputLink>
+<h:outputLink target="about:blank" value="disciplina.jsf">Disciplina</h:outputLink>
+
+
+<hr></hr>
+<table>
+<th>
+Nome
+</th>
+
+<th>
+Email
+</th>
+
+<th>
+Senha
+</th>
+<c:forEach var="i" begin="0" end="#{alunoBean.getAlunos().size()-1}"><br></br>
+
+<tr>
+	<td><h:outputText target="about:blank" value="#{alunoBean.getAlunos().get(i).getNome()}"></h:outputText></td>
+</tr>	
+
+<tr>
+	<td><h:outputText target="about:blank" value="#{alunoBean.getAlunos().get(i).getEmail()}"></h:outputText></td>
+</tr>
+	
+<tr>
+	<td><h:outputText target="about:blank" value="#{alunoBean.getAlunos().get(i).getSenha()}"></h:outputText></td>
+</tr>
+
+</c:forEach>
+</table>
+
+</body>
+</html>
