@@ -2,10 +2,14 @@ package br.com.jsfsysacademic.beans;
 
 
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
+import br.com.jsfsysacademic.entidades.Aluno;
 import br.com.jsfsysacademic.entidades.Professor;
-import br.com.jsfsysacademic.repository.DisciplinaRepositoryy;
+import br.com.jsfsysacademic.repository.AlunoRepository;
+import br.com.jsfsysacademic.repository.ProfessorRepository;
 
 @ManagedBean
 public class ProfessorBean {
@@ -26,19 +30,22 @@ public class ProfessorBean {
 	
 	public String remover(Professor professor){
 		
-		DisciplinaRepositoryy.delete(professor);
+		ProfessorRepository.delete(professor);
 		setProfessor(new Professor());
-		return "/professor";
+		return "/lista-prof.jsf";
 	}
 	public String salvar(){
 		
-		if(DisciplinaRepositoryy.getById(professor.getId()) == null){
-			DisciplinaRepositoryy.save(professor);
+		if(ProfessorRepository.getById(professor.getId()) == null){
+			ProfessorRepository.save(professor);
 			setProfessor(new Professor());
-			return "/professor";
+			return "/lista-prof.jsf";
 		}
-		DisciplinaRepositoryy.update(professor);
+		ProfessorRepository.update(professor);
 		setProfessor(new Professor());
-		return "/professor";
+		return "/lista-prof.jsf";
+	}
+	public List<Professor> getProfessores(){
+		return ProfessorRepository.getProfessores();
 	}
 }

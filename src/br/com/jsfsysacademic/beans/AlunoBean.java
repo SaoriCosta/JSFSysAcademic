@@ -40,12 +40,12 @@ public class AlunoBean {
 		if(AlunoRepository.getById(aluno.getId())==null){
 			AlunoRepository.save(aluno);
 			setAluno(new Aluno());
-			return "/index.jsf";
+			return "/lista-aluno.jsf";
 		}
 		
 		AlunoRepository.update(getAluno());
 		setAluno(new Aluno());
-		return "/aluno";
+		return "/lista-aluno.jsf";
 	
 	}
 	

@@ -9,43 +9,13 @@ xmlns:c="http://java.sun.com/jsp/jstl/core">
 </head>
 <body>
 
-<h1> <h:outputText value="#{alunoBean.getAluno().getNome()}"></h:outputText> </h1>
-
+<h1> <h:outputText value="Numero de alunos : #{alunoBean.getAlunos().size()}"></h:outputText> </h1>
+<h1> <h:outputText value="Numero de Professores : #{professorBean.getProfessores().size()}"></h:outputText> </h1>
+<h1> <h:outputText value="Numero de Disciplinas : #{disciplinaBean.getDisciplinas().size()}"></h:outputText> </h1>
 
 <h:outputLink target="about:blank" value="alunos.jsf">Alunos</h:outputLink>
 <h:outputLink target="about:blank" value="professor.jsf">Professor</h:outputLink>
 <h:outputLink target="about:blank" value="disciplina.jsf">Disciplina</h:outputLink>
-
-
-<hr></hr>
-<table>
-<th>
-Nome
-</th>
-
-<th>
-Email
-</th>
-
-<th>
-Senha
-</th>
-<c:forEach var="i" begin="0" end="#{alunoBean.getAlunos().size()-1}"><br></br>
-
-<tr>
-	<td><h:outputText target="about:blank" value="#{alunoBean.getAlunos().get(i).getNome()}"></h:outputText></td>
-</tr>	
-
-<tr>
-	<td><h:outputText target="about:blank" value="#{alunoBean.getAlunos().get(i).getEmail()}"></h:outputText></td>
-</tr>
-	
-<tr>
-	<td><h:outputText target="about:blank" value="#{alunoBean.getAlunos().get(i).getSenha()}"></h:outputText></td>
-</tr>
-
-</c:forEach>
-</table>
 
 </body>
 </html>

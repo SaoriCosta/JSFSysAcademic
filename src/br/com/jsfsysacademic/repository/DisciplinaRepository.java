@@ -1,8 +1,10 @@
 package br.com.jsfsysacademic.repository;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import br.com.jsfsysacademic.entidades.Aluno;
 import br.com.jsfsysacademic.entidades.Disciplina;
 
 public class DisciplinaRepository {
@@ -49,15 +51,13 @@ public class DisciplinaRepository {
 	}
 	
 	public static void delete(Disciplina disciplina){
-		
-		int index = 0;
-		for(Disciplina d : disciplinas){
-			if(d.getId() == disciplina.getId()){
-				disciplinas.remove(index);
+		Iterator<Disciplina> iter = disciplinas.iterator();
+		while(iter.hasNext()){
+			Disciplina p = iter.next();
+			if(p.getId() == disciplina.getId()){
+				iter.remove();
 			}
-		index++;	
 		}
-		
 	}
 	
 	public static List<Disciplina> getDisciplina(){

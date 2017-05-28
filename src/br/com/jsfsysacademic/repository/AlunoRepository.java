@@ -1,9 +1,11 @@
 package br.com.jsfsysacademic.repository;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import br.com.jsfsysacademic.entidades.Aluno;
+import br.com.jsfsysacademic.entidades.Professor;
 
 public class AlunoRepository {
 
@@ -31,13 +33,12 @@ public class AlunoRepository {
 	}
  	
 	public static void delete(Aluno aluno){
-		int index = 0;
-		for(Aluno a : alunos){
-			if(a.getId() == aluno.getId()){
-				alunos.remove(index);
-				return;
+		Iterator<Aluno> iter = alunos.iterator();
+		while(iter.hasNext()){
+			Aluno p = iter.next();
+			if(p.getId() == aluno.getId()){
+				iter.remove();
 			}
-			index++;
 		}
 	}
 	
