@@ -50,10 +50,12 @@ public class DisciplinaBean {
 		return DisciplinaRepository.getDisciplina();
 	}
 	
-	public String update(Disciplina disciplina){
+
+	public String carregar(Disciplina disciplina){
+		System.out.println("Carregar - " + disciplina);
 		setDisciplina(disciplina);
-		return salvar();
-	}
+		return "/disciplina.jsf";
+}
 	
 	
 }

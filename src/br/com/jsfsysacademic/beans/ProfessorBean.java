@@ -40,12 +40,25 @@ public class ProfessorBean {
 			ProfessorRepository.save(professor);
 			setProfessor(new Professor());
 			return "/lista-prof.jsf";
+		}else{
+			System.out.println("Entrou aqui esse DIABO");
+			ProfessorRepository.update(professor);
+			setProfessor(new Professor());
+			return "/lista-prof.jsf";
 		}
-		ProfessorRepository.update(professor);
-		setProfessor(new Professor());
-		return "/lista-prof.jsf";
+		
 	}
+	
 	public List<Professor> getProfessores(){
 		return ProfessorRepository.getProfessores();
 	}
+	
+	
+
+	public String carregar(Professor professor){
+		System.out.println("Carregar - " + professor);
+		setProfessor(professor);
+		return "/professor.jsf";
+}
+	
 }

@@ -6,11 +6,12 @@ import java.util.List;
 
 import br.com.jsfsysacademic.entidades.Aluno;
 import br.com.jsfsysacademic.entidades.Disciplina;
+import br.com.jsfsysacademic.entidades.Professor;
 
 public class DisciplinaRepository {
 
 	private static List<Disciplina> disciplinas = new ArrayList<>();
-	private static int id = 0;
+	private static int id = 1;
 	
 	public static Disciplina getById(int id){
 	
@@ -30,22 +31,15 @@ public class DisciplinaRepository {
 	}
 	
 	public static void update(Disciplina disciplina){
-		Disciplina dis = getById(disciplina.getId());
-		
-		if(dis != null){
-			dis.setCodigo(disciplina.getCodigo());
-			dis.setCredito(disciplina.getCredito());
-			dis.setDisciplina(disciplina.getDisciplina());
-			dis.setId(disciplina.getId());
-			dis.setPeriodo(dis.getPeriodo());
-			
-			int index = 0;
-			for(Disciplina d : disciplinas){
-				if(d.getId() == dis.getId()){
-					disciplinas.remove(index);
-					disciplinas.add(dis);
-				}
-			index++;	
+		for (Iterator<Disciplina> it = disciplinas.iterator(); it.hasNext();) {
+			Disciplina a = it.next();
+			if (a.getId() == disciplina.getId()) {
+				a.setCodigo(disciplina.getCodigo());
+				a.setCredito(disciplina.getCredito());
+				a.setDisciplina(disciplina.getDisciplina());
+				a.setPeriodo(disciplina.getPeriodo());
+				System.out.println("Updated: " + disciplina);
+				return;
 			}
 		}
 	}

@@ -1,13 +1,23 @@
 package br.com.jsfsysacademic.entidades;
 
-public class Disciplina {
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Disciplina {
+	
+	@Id
+	@GeneratedValue
 	private int id;
 	private String codigo;
 	private String disciplina;
 	private String periodo;
 	private int credito;
 	
+	private List<Aluno> alunos;
 	
 	public int getId() {
 		return id;
@@ -38,6 +48,12 @@ public class Disciplina {
 	}
 	public void setCredito(int credito) {
 		this.credito = credito;
+	}
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 	
 	

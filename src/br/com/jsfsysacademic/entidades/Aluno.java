@@ -1,13 +1,27 @@
 package br.com.jsfsysacademic.entidades;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
 public class Aluno {
 	
+	
+	@Id
+	@GeneratedValue
 	private int id;
 	private String nome;
 	private String cpf;
 	private String telefone;
 	private String email;
 	private String senha;
+	
+	@ManyToMany
+	private List<Disciplina> disciplina;
 	
 	public String getSenha() {
 		return senha;
@@ -44,6 +58,12 @@ public class Aluno {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<Disciplina> getDisciplina() {
+		return disciplina;
+	}
+	public void setDisciplina(List<Disciplina> disciplina) {
+		this.disciplina = disciplina;
 	}
 	
 

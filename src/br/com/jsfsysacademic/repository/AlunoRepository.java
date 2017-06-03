@@ -44,25 +44,18 @@ public class AlunoRepository {
 	
 	public static void update(Aluno aluno){
 		
-		Aluno aluno2 = getById(aluno.getId());
-		
-		if(aluno2 != null ){
-			
-			aluno2.setCpf(aluno.getCpf());
-			aluno2.setEmail(aluno.getEmail());
-			aluno2.setNome(aluno.getNome());
-			aluno2.setId(aluno.getId());
-			aluno2.setTelefone(aluno.getTelefone());
-			int index = 0;
-			for(Aluno a : alunos){
-				if(a.getId() == aluno2.getId()){
-					alunos.remove(index);
-					alunos.add(aluno2);
-				}
-			index++;	
+		for (Iterator<Aluno> it = alunos.iterator(); it.hasNext();) {
+			Aluno a = it.next();
+			if (a.getId() == aluno.getId()) {
+				a.setNome(aluno.getNome());
+				a.setEmail(aluno.getEmail());
+				a.setTelefone(aluno.getTelefone());
+				a.setCpf(aluno.getCpf());
+				a.setSenha(aluno.getSenha());
+				System.out.println("Updated: " + aluno);
+				return;
 			}
-		}
-	
+}
 		
 		
 		

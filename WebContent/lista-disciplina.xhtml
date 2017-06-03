@@ -43,7 +43,7 @@ xmlns:h="http://java.sun.com/jsf/html"
 		
 		<h:column>
 			<h:form>
-				<h:commandButton action="#{disciplinaBean}" value="Editar"></h:commandButton>
+				<h:commandButton action="#{disciplinaBean.carregar(d)}" value="Editar"></h:commandButton>
 				<h:commandButton action="#{disciplinaBean.remover(d)}" value="Remover"></h:commandButton>
 			</h:form>
 		</h:column>

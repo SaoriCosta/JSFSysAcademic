@@ -39,6 +39,7 @@ public class AlunoBean {
 		
 		if(AlunoRepository.getById(aluno.getId())==null){
 			AlunoRepository.save(aluno);
+			System.out.println(aluno.getId());
 			setAluno(new Aluno());
 			return "/lista-aluno.jsf";
 		}
@@ -48,6 +49,13 @@ public class AlunoBean {
 		return "/lista-aluno.jsf";
 	
 	}
+	
+
+	public String carregar(Aluno aluno){
+		System.out.println("Carregar - " + aluno);
+		setAluno(aluno);
+		return "/alunos.jsf";
+}
 	
 	}
 	
