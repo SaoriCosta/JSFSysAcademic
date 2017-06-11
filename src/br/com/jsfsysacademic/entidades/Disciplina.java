@@ -17,6 +17,13 @@ public class Disciplina {
 	private String periodo;
 	private int credito;
 	
+	private List<Professor> professor;
+	public List<Professor> getProfessor() {
+		return professor;
+	}
+	public void setProfessor(List<Professor> professor) {
+		this.professor = professor;
+	}
 	private List<Aluno> alunos;
 	
 	public int getId() {

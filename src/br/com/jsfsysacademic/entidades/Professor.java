@@ -25,6 +25,7 @@ public class Professor {
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
+
 	public String getNome() {
 		return nome;
 	}

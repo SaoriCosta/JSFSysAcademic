@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:f="http://java.sun.com/jsf/core"
 >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -10,13 +11,17 @@ xmlns:c="http://java.sun.com/jsp/jstl/core"
 </head>
 <body>
 
-
+<h:messages showSummary="false" showDetail="true" />
 <h:form>
 	<h:inputText placeholder="nome" value="#{alunoBean.aluno.id}" /><br></br>
 	<h:outputLabel>Nome : </h:outputLabel><h:inputText placeholder="nome" value="#{alunoBean.aluno.nome}" /><br></br>
 	<h:outputLabel>CPF : </h:outputLabel><h:inputText placeholder="nome" value="#{alunoBean.aluno.cpf}" /><br></br>
 	<h:outputLabel>Telefone : </h:outputLabel><h:inputText placeholder="nome" value="#{alunoBean.aluno.telefone}" /><br></br>
-	<h:outputLabel>Email : </h:outputLabel><h:inputText placeholder="nome" value="#{alunoBean.aluno.email}" /><br></br>
+	<h:outputLabel>Email : </h:outputLabel><h:inputText placeholder="nome" value="#{alunoBean.aluno.email}" >
+	<f:validator validatorId="emailValidator"></f:validator>
+	</h:inputText>
+	
+<br></br>
 	<h:outputLabel>Senha : </h:outputLabel><h:inputText placeholder="nome" value="#{alunoBean.aluno.senha}" /><br></br>
 	<h:commandButton action="#{alunoBean.salvar()}" value="Salvar"> </h:commandButton>
 </h:form>		
